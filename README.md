@@ -1,3 +1,8 @@
+*AI Usage disclosure: Generative AI was used to assist in debugging the chart rendering and filtering.
+AI was not used to generate any code, and all code choices can be explained by me.
+The code was tweaked and based on the original Lab 6 code.*
+
+
 # Seattle Bus Stop Dashboard
 
 An interactive map dashboard displaying Seattle bus stop locations with clustering visualization, as well as bus line direction distributions.
