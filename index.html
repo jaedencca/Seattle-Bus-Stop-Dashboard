@@ -1,3 +1,6 @@
+// Ai Usage disclosure: Generative AI was used to assist in debugging the chart rendering and filtering.
+// The code was tweaked and based on the original Lab 6 code.
+
 <!DOCTYPE html>
 <html>
 
@@ -97,20 +100,24 @@
             bottom: 0;
             right: 0;
             width: 110px;
-            background: #fff;
+            background: #343a40;
             margin-right: 20px;
             margin-bottom: 40px;
             padding: 10px 20px 10px 10px;
             border-radius: 3px;
             text-align: center;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
         }
 
         /* each line for a break */
         .break {
             position: relative;
             margin: 0px;
-            padding: 0px;
+            padding: 0px 0px 10px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* basic style for a dot/circle */
@@ -123,10 +130,10 @@
 
         /* the label for the dot */
         .dot-label {
-            position: absolute;
-            top: 0;
-            right: 0;
+            position: static;
             font-style: italic;
+            color: white;
+            margin-top: 5px;
         }
     </style>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
@@ -149,6 +156,9 @@
 
         <div id="footer">
             This dashboard shows bus stop locations in Seattle, showing clusters of stops and their heading directions.
+            <br><br>
+            <strong>Data Source:</strong><br>
+            <a href="https://services.arcgis.com/Ej0PsM5Aw677QF1W/arcgis/rest/services/TRANSITSTOP_POINT_2648/FeatureServer/0" target="_blank">ArcGIS Transit Stop Data</a>
         </div>
     </div>
     <div id="map"></div>
@@ -198,15 +208,13 @@
             labels.push(
                 '<p class="break"><i class="dot" style="background:' + colors[i] + '; width: ' + dot_radii +
                 'px; height: ' +
-                dot_radii + 'px; "></i> <span class="dot-label" style="top: ' + dot_radii / 2 + 'px;">' + label +
+                dot_radii + 'px; "></i> <span class="dot-label">' + label +
                 ' stops</span></p>');
 
         }
-        const source =
-            '<p style="text-align: right; font-size:10pt">Source: <a href="https://data.seattle.gov/">Seattle Data</a></p>';
 
         // join all the labels and the source to create the legend content.
-        legend.innerHTML = labels.join('') + source;
+        legend.innerHTML = labels.join('');
 
 
 
